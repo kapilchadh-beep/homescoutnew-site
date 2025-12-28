@@ -14,6 +14,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   phone: z.string().optional(),
+  propertyType: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
@@ -25,6 +26,7 @@ export function Contact() {
       name: "",
       email: "",
       phone: "",
+      propertyType: "",
       message: "",
     },
   });
@@ -32,8 +34,8 @@ export function Contact() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you shortly.",
+      title: "Search Started!",
+      description: "We've received your request and will contact you shortly.",
     });
     form.reset();
   }
@@ -42,9 +44,10 @@ export function Contact() {
     <Section id="contact" className="bg-background">
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Find Your Home</h2>
+          <h6 className="text-accent font-bold uppercase tracking-wider text-sm mb-2">Get Started</h6>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Find Your Perfect Home?</h2>
           <p className="text-muted-foreground mb-8 text-lg">
-            Ready to start your property journey? Get in touch with us today for a confidential discussion about your needs.
+            Contact us today to begin your property search journey. We're here to help you find a home that's just right for you and your family.
           </p>
 
           <div className="space-y-6">
@@ -54,8 +57,8 @@ export function Contact() {
               </div>
               <div>
                 <h4 className="font-bold mb-1">Email Us</h4>
-                <a href="mailto:hello@homescoutnz.co.nz" className="text-muted-foreground hover:text-primary transition-colors">
-                  hello@homescoutnz.co.nz
+                <a href="mailto:info@homescoutnz.co.nz" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@homescoutnz.co.nz
                 </a>
               </div>
             </div>
@@ -66,9 +69,10 @@ export function Contact() {
               </div>
               <div>
                 <h4 className="font-bold mb-1">Call Us</h4>
-                <a href="tel:+6491234567" className="text-muted-foreground hover:text-primary transition-colors">
-                  +64 9 123 4567
-                </a>
+                <div className="text-muted-foreground">
+                  <a href="tel:+6421558555" className="hover:text-primary transition-colors">+64 21 558 555</a>
+                  <p className="text-xs mt-1">Mon - Fri : 09 AM - 09 PM</p>
+                </div>
               </div>
             </div>
 
@@ -79,8 +83,8 @@ export function Contact() {
               <div>
                 <h4 className="font-bold mb-1">Office</h4>
                 <p className="text-muted-foreground">
-                  Auckland, New Zealand<br />
-                  Serving nationwide
+                  Serving Nationwide<br />
+                  New Zealand
                 </p>
               </div>
             </div>
@@ -90,13 +94,12 @@ export function Contact() {
         <Card className="shadow-lg border-border/50">
           <CardContent className="p-6 md:p-8">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Your Name" {...field} />
                       </FormControl>
@@ -109,9 +112,8 @@ export function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your@email.com" {...field} />
+                        <Input placeholder="Your Email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -122,9 +124,20 @@ export function Contact() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone (Optional)</FormLabel>
                       <FormControl>
-                        <Input placeholder="+64..." {...field} />
+                        <Input placeholder="Your Phone" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="propertyType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Property Type" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -135,11 +148,10 @@ export function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Tell us about what you're looking for..." 
-                          className="min-h-[120px]" 
+                          placeholder="Message" 
+                          className="min-h-[100px]" 
                           {...field} 
                         />
                       </FormControl>
@@ -147,7 +159,7 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full h-12 text-lg">Send Message</Button>
+                <Button type="submit" className="w-full h-12 text-lg bg-accent hover:bg-accent/90">Start Property Search</Button>
               </form>
             </Form>
           </CardContent>

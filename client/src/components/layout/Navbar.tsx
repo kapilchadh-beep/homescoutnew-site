@@ -18,8 +18,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: "About", to: "about" },
-    { name: "Services", to: "services" },
-    { name: "Testimonials", to: "testimonials" },
+    { name: "Properties", to: "properties" },
     { name: "Contact", to: "contact" },
   ];
 
@@ -36,9 +35,7 @@ export function Navbar() {
           duration={500}
           className="cursor-pointer flex items-center gap-2 group"
         >
-          <div className="bg-primary text-white p-2 rounded-lg group-hover:bg-accent transition-colors">
-            <Home size={24} />
-          </div>
+          <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-10 rounded shadow-sm" />
           <span className={`text-xl font-display font-bold tracking-tight ${scrolled ? "text-foreground" : "text-white"}`}>
             Home Scout NZ
           </span>

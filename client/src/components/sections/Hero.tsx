@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import heroImage from "@assets/generated_images/modern_new_zealand_home_exterior_with_nature.png";
 
 export function Hero() {
   return (
@@ -10,12 +9,11 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
-          alt="Modern New Zealand Home"
+          src="https://homescoutnz.co.nz/img/carousel-1.jpeg"
+          alt="HomeScout NZ - Find Your Perfect Home"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}
@@ -25,26 +23,27 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-6">
-            New Zealand's Premier Property Scouts
+          <span className="inline-block py-1 px-3 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 text-sm font-medium mb-6 text-accent-foreground">
+            Welcome to HomeScout NZ
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6">
-            Find Your Dream Home <br className="hidden md:block" />
-            <span className="text-secondary">Without the Stress</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 text-balance">
+            Find Your Perfect Home in New Zealand
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
-            We specialize in uncovering hidden gems and off-market opportunities. Let us handle the search while you enjoy the journey home.
-          </p>
+          <ul className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-lg md:text-xl font-light">
+            <li className="flex items-center gap-2"><span>1.</span> Property Search</li>
+            <li className="flex items-center gap-2"><span>2.</span> Home Scouting</li>
+            <li className="flex items-center gap-2"><span>3.</span> Market Insights</li>
+          </ul>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="services" smooth={true} duration={500} offset={-80}>
+            <Link to="properties" smooth={true} duration={500} offset={-80}>
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white border-none w-full sm:w-auto h-14 px-8 text-lg">
-                Explore Services
+                View Properties
               </Button>
             </Link>
             <Link to="contact" smooth={true} duration={500} offset={-80}>
               <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm w-full sm:w-auto h-14 px-8 text-lg">
-                Book Consultation
+                Get Started
               </Button>
             </Link>
           </div>
