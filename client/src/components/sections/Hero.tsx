@@ -13,7 +13,7 @@ export function Hero() {
           alt="HomeScout NZ - Find Your Perfect Home"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
@@ -23,17 +23,19 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 text-sm font-medium mb-6 text-accent-foreground">
+          <span className="inline-block py-1 px-3 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 text-sm font-medium mb-6 text-white">
             Welcome to HomeScout NZ
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 text-balance">
             Find Your Perfect Home in New Zealand
           </h1>
-          <ul className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-lg md:text-xl font-light">
-            <li className="flex items-center gap-2"><span>1.</span> Property Search</li>
-            <li className="flex items-center gap-2"><span>2.</span> Home Scouting</li>
-            <li className="flex items-center gap-2"><span>3.</span> Market Insights</li>
-          </ul>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-lg md:text-xl font-light">
+            <span className="flex items-center gap-2">Property Search</span>
+            <span className="w-1 h-1 bg-white rounded-full self-center hidden md:block"></span>
+            <span className="flex items-center gap-2">Home Scouting</span>
+            <span className="w-1 h-1 bg-white rounded-full self-center hidden md:block"></span>
+            <span className="flex items-center gap-2">Market Insights</span>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="properties" smooth={true} duration={500} offset={-80}>
