@@ -35,7 +35,7 @@ export function Navbar() {
           duration={500}
           className="cursor-pointer flex items-center gap-2 group"
         >
-          <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-10 rounded shadow-sm" />
+          <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-16 md:h-20 rounded shadow-sm transition-all" />
           <span className={`text-xl font-display font-bold tracking-tight ${scrolled ? "text-foreground" : "text-white"}`}>
             Home Scout NZ
           </span>
