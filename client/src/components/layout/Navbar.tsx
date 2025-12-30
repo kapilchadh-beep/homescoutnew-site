@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-white/90 backdrop-blur-xl shadow-md py-3" : "bg-transparent py-6"
+        scrolled ? "bg-white/95 backdrop-blur-xl shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 max-w-7xl flex items-center justify-between">
@@ -33,23 +33,17 @@ export function Navbar() {
           to="hero"
           smooth={true}
           duration={500}
-          className="cursor-pointer flex items-center gap-4 group"
+          className="cursor-pointer group flex items-center"
         >
-          <div className="relative">
-            <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-16 md:h-20 rounded-xl shadow-lg ring-4 ring-white transition-all group-hover:scale-105" />
-          </div>
-          <div className="flex flex-col">
-            <span className={`text-2xl font-display font-black tracking-tighter leading-none ${scrolled ? "text-primary" : "text-white"}`}>
-              HOME SCOUT
-            </span>
-            <span className={`text-xs font-bold tracking-[0.3em] uppercase opacity-80 ${scrolled ? "text-accent" : "text-white"}`}>
-              New Zealand
-            </span>
-          </div>
+          <img 
+            src="https://homescoutnz.co.nz/img/HS_logo.jpg" 
+            alt="HomeScout NZ Logo" 
+            className="h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -57,16 +51,16 @@ export function Navbar() {
               smooth={true}
               duration={500}
               offset={-80}
-              className={`text-sm font-medium cursor-pointer hover:text-accent transition-colors ${
-                scrolled ? "text-foreground" : "text-white/90 hover:text-white"
+              className={`text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-accent transition-colors ${
+                scrolled ? "text-primary" : "text-white"
               }`}
             >
               {link.name}
             </Link>
           ))}
           <Link to="contact" smooth={true} duration={500} offset={-80}>
-            <Button className={scrolled ? "bg-primary text-white" : "bg-white text-primary hover:bg-white/90"}>
-              Get Started
+            <Button className={`rounded-full px-8 font-bold ${scrolled ? "bg-primary text-white" : "bg-white text-primary hover:bg-slate-100"}`}>
+              GET STARTED
             </Button>
           </Link>
         </div>
