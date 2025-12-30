@@ -2,9 +2,8 @@ import { Section } from "@/components/ui/section";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bed, Bath, Square, MapPin } from "lucide-react";
+import { Bed, Bath, Square, MapPin, ArrowRight } from "lucide-react";
 
-// This array can be easily updated in one go to "upload" new properties
 const properties = [
   {
     id: 1,
@@ -43,55 +42,74 @@ const properties = [
 
 export function Properties() {
   return (
-    <Section id="properties" className="bg-secondary/20">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Properties</h2>
-        <p className="text-lg text-muted-foreground">
-          A selection of exclusive listings and successfully scouted homes across New Zealand.
-        </p>
+    <Section id="properties" className="bg-[#f8fafc]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="max-w-2xl">
+          <Badge variant="outline" className="mb-4 text-accent border-accent/20 bg-accent/5 px-3 py-1 text-xs uppercase font-bold tracking-wider">
+            Exclusive Listings
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Featured Properties</h2>
+          <p className="text-lg text-muted-foreground">
+            A selection of hand-picked listings and recently scouted homes across New Zealand.
+          </p>
+        </div>
+        <button className="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
+          View all listings <ArrowRight size={20} />
+        </button>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {properties.map((property, index) => (
           <motion.div
             key={property.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white group">
+            <Card className="overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 bg-white group rounded-2xl">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
                   src={property.image} 
                   alt={property.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <Badge className="absolute top-4 left-4 bg-accent text-white border-none shadow-sm">
-                  {property.status}
-                </Badge>
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-white/95 backdrop-blur-sm text-primary border-none shadow-md font-bold px-3 py-1.5">
+                    {property.status}
+                  </Badge>
+                </div>
               </div>
               <CardHeader className="pb-2">
-                <div className="flex items-center gap-1 text-muted-foreground text-sm mb-1">
+                <div className="flex items-center gap-1.5 text-accent font-bold text-xs uppercase tracking-wide mb-2">
                   <MapPin size={14} />
                   {property.location}
                 </div>
-                <CardTitle className="text-xl">{property.title}</CardTitle>
+                <CardTitle className="text-2xl text-primary group-hover:text-accent transition-colors">{property.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-primary mb-4">{property.price}</div>
-                <div className="flex items-center justify-between py-4 border-t border-border">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Bed size={18} className="text-accent" />
-                    <span>{property.beds} Beds</span>
+                <div className="text-3xl font-extrabold text-primary mb-6 tracking-tight">{property.price}</div>
+                <div className="grid grid-cols-3 gap-2 py-4 border-t border-slate-100">
+                  <div className="flex flex-col gap-1 items-center md:items-start">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Bed size={18} className="text-accent" />
+                      <span className="font-bold">{property.beds}</span>
+                    </div>
+                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Beds</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Bath size={18} className="text-accent" />
-                    <span>{property.baths} Baths</span>
+                  <div className="flex flex-col gap-1 items-center md:items-start">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Bath size={18} className="text-accent" />
+                      <span className="font-bold">{property.baths}</span>
+                    </div>
+                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Baths</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Square size={18} className="text-accent" />
-                    <span>{property.sqm}</span>
+                  <div className="flex flex-col gap-1 items-center md:items-start">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Square size={18} className="text-accent" />
+                      <span className="font-bold">{property.sqm}</span>
+                    </div>
+                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-wider">Area</span>
                   </div>
                 </div>
               </CardContent>

@@ -24,8 +24,8 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-white/90 backdrop-blur-xl shadow-md py-3" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 max-w-7xl flex items-center justify-between">
@@ -33,12 +33,19 @@ export function Navbar() {
           to="hero"
           smooth={true}
           duration={500}
-          className="cursor-pointer flex items-center gap-2 group"
+          className="cursor-pointer flex items-center gap-4 group"
         >
-          <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-16 md:h-20 rounded shadow-sm transition-all" />
-          <span className={`text-xl font-display font-bold tracking-tight ${scrolled ? "text-foreground" : "text-white"}`}>
-            Home Scout NZ
-          </span>
+          <div className="relative">
+            <img src="https://homescoutnz.co.nz/img/HS_logo.jpg" alt="HomeScout NZ Logo" className="h-16 md:h-20 rounded-xl shadow-lg ring-4 ring-white transition-all group-hover:scale-105" />
+          </div>
+          <div className="flex flex-col">
+            <span className={`text-2xl font-display font-black tracking-tighter leading-none ${scrolled ? "text-primary" : "text-white"}`}>
+              HOME SCOUT
+            </span>
+            <span className={`text-xs font-bold tracking-[0.3em] uppercase opacity-80 ${scrolled ? "text-accent" : "text-white"}`}>
+              New Zealand
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

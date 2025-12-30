@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: 'Open Sans', sans-serif;
+  --font-sans: 'Inter', 'Open Sans', sans-serif;
   --font-display: 'Montserrat', sans-serif;
 
   --color-background: hsl(var(--background));
@@ -35,30 +35,30 @@
 }
 
 :root {
-  /* Ocean Slate & Fern Green Theme */
-  --background: 40 20% 99%; /* Warm White/Sand */
-  --foreground: 215 25% 27%; /* Deep Slate Text */
+  /* Polished, Light, Professional Real Estate Theme */
+  --background: 0 0% 100%; /* Pure White for clarity */
+  --foreground: 222 47% 11%; /* Deep Charcoal Blue */
 
-  --primary: 215 35% 30%; /* Deep Ocean Blue */
-  --primary-foreground: 0 0% 100%;
+  --primary: 221 39% 11%; /* Professional Navy */
+  --primary-foreground: 210 40% 98%;
 
-  --secondary: 145 25% 90%; /* Soft Green Tint */
-  --secondary-foreground: 145 40% 25%; /* Darker Green Text */
+  --secondary: 210 40% 96.1%; /* Soft Grey-Blue */
+  --secondary-foreground: 222.2 47.4% 11.2%;
 
-  --accent: 145 35% 45%; /* Fern Green */
-  --accent-foreground: 0 0% 100%;
+  --accent: 142 71% 45%; /* Vibrant Success Green */
+  --accent-foreground: 144 33% 97%;
 
-  --muted: 210 20% 96%;
-  --muted-foreground: 215 15% 45%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
 
   --card: 0 0% 100%;
-  --card-foreground: 215 25% 27%;
+  --card-foreground: 222.2 47.4% 11.2%;
 
-  --border: 215 15% 90%;
-  --input: 215 15% 90%;
-  --ring: 215 35% 30%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 }
 
 @layer base {
@@ -66,14 +66,17 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground selection:bg-accent/20;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight;
+    @apply font-display font-bold tracking-tight text-primary;
   }
 }
 
 @layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
   .text-balance {
     text-wrap: balance;
   }
