@@ -1,6 +1,11 @@
-"scripts": {
-  "build": "npm --prefix server run build",
-  "dev": "npm --prefix server run dev",
-  "preview": "npm --prefix server run preview",
-  "postinstall": "npm --prefix server install"
+﻿{
+  "name": "homescout-root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix server run build",
+    "dev": "npm --prefix server run dev",
+    "preview": "npm --prefix server run preview",
+    "postinstall": "npm --prefix server install"
+  }
 }
